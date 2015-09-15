@@ -56,6 +56,9 @@ function routerui_test_page() {
 
 ',
       '#attached' => array(
+        'css'=> array(
+          'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
+        ),
         'js' => array(
           'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js',
           'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-resource.js',
