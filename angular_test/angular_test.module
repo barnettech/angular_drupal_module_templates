@@ -13,8 +13,8 @@ function angular_test_menu() {
   $items = array();
 
   $items['my_angular'] = array(
-    'title' => 'My Angular',
-    'description' => 'My Angular',
+    'title' => 'My Angular, basic Angular.js in a Drupal7 Environment!!!!!',
+    'description' => 'My Angular, basic Angular.js in a Drupal7 Environment!!!!!',
     'page callback' => 'angular_test_page',
     'access arguments' => array('access content'),
     'weight' => 30,

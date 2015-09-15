@@ -13,7 +13,7 @@ function routerui_test_menu() {
   $items = array();
 
   $items['my_angular_routerui'] = array(
-    'title' => 'My Angular Using Router.UI',
+    'title' => 'My Angular Using Router.UI in a Drupal7 Environment!!!!!',
     'description' => 'My Angular',
     'page callback' => 'routerui_test_page',
     'access arguments' => array('access content'),
