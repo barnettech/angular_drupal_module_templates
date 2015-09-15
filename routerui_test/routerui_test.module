@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Display Data Using Router UI.
+ */
+
+/**
+ * Implements hook_init().
+ */
+
+function routerui_test_menu() {
+  $items = array();
+
+  $items['my_angular_routerui'] = array(
+    'title' => 'My Angular Using Router.UI',
+    'description' => 'My Angular',
+    'page callback' => 'routerui_test_page',
+    'access arguments' => array('access content'),
+    'weight' => 30,
+  );
+return $items;
+}
+
+function routerui_test_page() {
+  $path = drupal_get_path('module', 'routerui_test');
+  $output =  array(
+    'first_para' => array(
+      '#type' => 'markup',
+      '#markup' => '
+
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp">
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="#">AngularUI Router</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="about">About</a></li>
+    </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<div class="text-center">
+    <p>A tutorial by <a href="http://scotch.io" target="_blank">scotch.io</a></p>
+    <p>View the tutorial: <a href="http://scotch.io/tutorials/javascript/angular-routing-using-ui-router" target="_blank">AngularJS Routing using UI-Router</a></p>
+</div>
+
+',
+      '#attached' => array(
+        'js' => array(
+          'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js',
+          'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-resource.js',
+          'http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js',
+          $path . '/js/app.js',
+        ),
+      ),
+    )
+  );
+  return $output;
+
+}

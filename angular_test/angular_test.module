@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Display My Courses.
+ */
+
+/**
+ * Implements hook_init().
+ */
+
+function angular_test_menu() {
+  $items = array();
+
+  $items['my_angular'] = array(
+    'title' => 'My Angular',
+    'description' => 'My Angular',
+    'page callback' => 'angular_test_page',
+    'access arguments' => array('access content'),
+    'weight' => 30,
+  );
+return $items;
+}
+
+function angular_test_page() {
+  $output =  array(
+    'first_para' => array(
+      '#type' => 'markup',
+      '#markup' => '
+
+<div ng-app="">
+ 	<p>Name : <input type="text" ng-model="name"></p>
+ 	<h1>Hello {{name}}</h1>
+</div>
+
+
+',
+      '#attached' => array(
+        'js' => array(
+          'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js',
+          'https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-resource.js',
+        ),
+      ),
+    )
+  );
+  return $output;
+
+}

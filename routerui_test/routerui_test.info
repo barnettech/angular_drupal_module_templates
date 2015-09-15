@@ -1,0 +1,4 @@
+name = Angular Router UI Test
+description = A test to get Angular.js and rounter.ui working in drupal7
+package = Barnettech Boutique Development
+core = 7.x
